@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration-color: blue;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-size: 100% 100%;
+    /*cover vmiért nem mukodiik*/
+    background-repeat: repeat-y;
+    background-image: url('../images/background/MK 1920 X 1080.jpg');
+    background-attachment: fixed;
+}
+
+@media (min-width: 1280px) {
+    body {
+        background-image: url('../images/background/MK 1280 X 720.jpg');
+    }
+}
+
+@media (min-width: 1366px) {
+    body {
+        background-image: url('../images/background/MK 1366 X 768.jpg');
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        background-image: url('../images/background/MK 1440 X 900.jpg');
+    }
+}
+
+@media (min-width: 1536px) {
+    body {
+        background-image: url('../images/background/MK 1536 X 864.jpg');
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        background-image: url('../images/background/MK 1920 X 1080.jpg');
+    }
+}
+
+.img-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 95%;
+}
+
+.img-box img {
+    width: 50%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+figure {
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    text-align: center;
+    color: gold;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+figure:hover {
+    text-decoration: underline;
+    text-decoration-color: blue;
+    text-underline-offset: 10px;
+}

@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital@1&display=swap');
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    outline: red;
+}
+
+html, body {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+body {
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-image: url('../images/background/background.jpg');
+    background-position: center center;
+}
+
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    grid-template-areas:
+        ". . . . ."
+        ". . message . ."
+        ". . . . ."
+        ". . result . ."
+        "you . result . opponent"
+        "you . . . opponent"
+        ". . . . ."
+        ". rock paper scissor ."
+        ". rock paper scissor ."
+        ". . . . .";
+}
+
+.message {
+    grid-area: message;
+}
+
+.message h1 {
+    color: #fdfdb2;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-size: 4.5em;
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 255));
+}
+
+.opponent {
+    grid-area: opponent;
+}
+
+.you {
+    grid-area: you;
+}
+
+.result {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.8fr 0.2fr;
+    grid-template-areas:
+        "display display display"
+        "stats stats stats";
+    grid-area: result;
+    background-color: #4c4e52;
+    border-radius: 10%;
+    border: 0.5rem ridge dimgray;
+}
+
+
+.display {
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-area: display;
+    grid-template-areas:
+        "player separator computer"
+        "player separator computer"
+        "player separator computer";
+}
+
+.display .card {
+    align-self: center;
+}
+
+.result .display .score h1 {
+    font-size: 4rem;
+    font-family: 'LOOPY', sans-serif;
+}
+
+.player {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    grid-template-areas:
+        "playerCaption"
+        "playerScore";
+    grid-area: player;
+    color: #00ff00;
+}
+
+.playerCaption {
+    grid-area: playerCaption;
+}
+
+#playerScore {
+    grid-area: playerScore;
+}
+
+.separator {
+    grid-area: separator;
+}
+
+.computer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    grid-template-areas:
+        "computerCaption"
+        "computerScore";
+    grid-area: computer;
+    color: #f70d1a;
+}
+
+.computerCaption {
+    grid-area: computerCaption;
+}
+
+#computerScore {
+    grid-area: computerScore;
+}
+
+.result .stats {
+    grid-area: stats;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-top: 2px solid blue;
+}
+
+.result .stats div {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.result .stats div:nth-child(1) {
+    color: #00ff00;
+}
+
+.result .stats div:nth-child(2) {
+    color: #5cb6f0;
+}
+
+.result .stats div:nth-child(3) {
+    color: #f70d1a;
+}
+
+
+#rock {
+    grid-area: rock;
+}
+
+#paper {
+    grid-area: paper;
+}
+
+#scissors {
+    grid-area: scissor;
+}
+
+.selection {
+    position: relative;
+}
+
+.selection:hover {
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 255));
+    transform: scale(1.2);
+    transform-origin: center;
+    cursor: pointer;
+}
+
+
+.selection .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    width: 40%;
+    padding: 8px 15px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    background: black;
+    color: goldenrod;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility 0s, opacity 0.5s linear;
+    -webkit-opacity: 0;
+    -webkit-visibility: hidden
+}
+
+.selection:hover .caption {
+    visibility: visible;
+    opacity: 0.7;
+
+    -webkit-opacity: 0.7;
+    -webkit-visibility: visible;
+}
+
+.selection .image {
+    object-fit: content;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    height: 100%;
+    z-index: -1;
+
+    -webkit-z-index: -1;
+}
+
+.selection img {
+    max-width: 60%;
+}
+
+.loser {
+    filter: drop-shadow(0 0 0.75rem rgb(0, 255, 0));
+}
+
+.winner {
+    filter: drop-shadow(0 0 0.75rem rgb(255, 0, 0));
+}
+
+.stalemate {
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 255));
+}
